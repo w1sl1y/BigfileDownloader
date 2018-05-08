@@ -1,14 +1,17 @@
 大文件下载工具库
 
-1. 基于OKHttp
-2. 实现流程为
-  a. 有一个下载任务时，先获取文件下载总长度
-  b. 将该任务拆分为N个子任务，每个子任务下载其对应长度的子文件并保存
-  c. 下载任务监听所有子任务的完成情况，如果全部完成则合并所有的子文件为目标文件
-  d. 回调给用户，下载任务结束
-  
-  
-使用代码如下：
+
+实现流程
+1 有一个下载任务时，先获取文件下载总长度
+2 将该任务拆分为N个子任务，每个子任务下载其对应长度的子文件并保存
+3 下载任务监听所有子任务的完成情况，如果全部完成则合并所有的子文件为目标文件
+4  回调给用户，下载任务结束
+
+
+示例：
+
+
+
   DownloadManager.getInstance()
                 .setTempFilePath(Environment.getExternalStorageDirectory() + "/temp_download")
                 .download(url, path, new ICallback() {
